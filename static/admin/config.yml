@@ -15,6 +15,8 @@ site_url: https://europeanen-jamstack.netlify.com/
 
 logo_url: "{{site_url}}/images/logo_MEN.png"
 
+local_backend: true
+
 collections:
   - name: "blog"
     label: "Blog"
@@ -23,17 +25,36 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Author", name: "author", }
+      - label: "Author"
+        name: "author"
+        widget: relation
+        collection: "author"
+        displayFields: ["name"]
+        searchFields: ["name"]
+        valueField: "name"
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean", required: false, default: false}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - label: "Attachment"
-          name: "attachment"
-          widget: file
+        name: "attachment"
+        widget: file
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list", required: false}
+
+  - name: "author"
+    label: "Authors"
+    label_singular: "Author"
+    description: "List of authors available on the platform"
+    folder: "src/authors"
+    create: true
+    delete: "false"
+    identifier_field: "name"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author"}
+      - {label: "Name", name: "name", widget: string}
+      - {label: "Profile picture", name: "profile_picture", widget: image, allow_multiple: false}
 
   - name: "pages"
     label: "Pages"
