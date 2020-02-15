@@ -166,64 +166,64 @@ export const productPageQuery = graphql`
         heading
         description
         intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
+#          blurbs {
+#            image {
+#              childImageSharp {
+#                fluid(maxWidth: 240, quality: 64) {
+#                  ...GatsbyImageSharpFluid
+#                }
+#              }
+#            }
+#            text
+#          }
           heading
           description
         }
         main {
           heading
           description
-          image1 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 526, quality: 92) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          image2 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 526, quality: 92) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          image3 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1075, quality: 72) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+#          image1 {
+#            alt
+#            image {
+#              childImageSharp {
+#                fluid(maxWidth: 526, quality: 92) {
+#                  ...GatsbyImageSharpFluid
+#                }
+#              }
+#            }
+#          }
+#          image2 {
+#            alt
+#            image {
+#              childImageSharp {
+#                fluid(maxWidth: 526, quality: 92) {
+#                  ...GatsbyImageSharpFluid
+#                }
+#              }
+#            }
+#          }
+#          image3 {
+#            alt
+#            image {
+#              childImageSharp {
+#                fluid(maxWidth: 1075, quality: 72) {
+#                  ...GatsbyImageSharpFluid
+#                }
+#              }
+#            }
+#          }
         }
         testimonials {
           author
           quote
         }
-        full_image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+#        full_image {
+#          childImageSharp {
+#            fluid(maxWidth: 2048, quality: 100) {
+#              ...GatsbyImageSharpFluid
+#            }
+#          }
+#        }
         pricing {
           heading
           description
