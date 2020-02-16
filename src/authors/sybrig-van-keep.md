@@ -1,7 +1,7 @@
 ---
 templateKey: author
-name: Sybrig van Keep
-job_title: De Issuemakers
-profile_picture: /img/sybrig_1.jpg
+name: Wytske de Pater
+job_title: ANWB
+profile_picture: /img/wytske.jpeg
 ---
 
