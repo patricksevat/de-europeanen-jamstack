@@ -1,7 +1,5 @@
 export const registerServiceWorker = () => true;
 
-console.log('hello gatsby browser');
-
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
   .register("/sw.js")

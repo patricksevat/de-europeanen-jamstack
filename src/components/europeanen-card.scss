@@ -15,10 +15,13 @@ $red: #ae1c27;
 
   &-header {
     padding: 24px;
-    color: white;
     border-radius: 3px 3px 0px 0px;
     border-bottom: 1px solid #010080;
     font-weight: 400;
+
+    &-title {
+      color: white;
+    }
 
     &--yellow {
       background-color: $yellow

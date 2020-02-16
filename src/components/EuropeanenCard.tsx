@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { IEuropeanenAuthor } from '../types';
 import EUFlag from '../img/eu-flag.svg'
 import './europeanen-card.scss'
+import { Link } from 'gatsby';
 
 type HTMLString = string;
 
@@ -20,13 +21,21 @@ interface ICardProps {
   author?: IEuropeanenAuthor,
   body: HTMLString,
   metadata?: IArticleMetadata,
+  link?: string,
 }
 
 export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
   return (
     <section className="eu_card">
       <header className={`eu_card-header eu_card-header--${props.headerColor}`}>
-        <h2 className="eu_card-header_title">{ props.title }</h2>
+        { props.link ?
+          <Link to={props.link}>
+            <h2 className="eu_card-header-title">{ props.title }</h2>
+          </Link>
+        :
+          <h2 className="eu_card-header-title">{ props.title }</h2>
+        }
+
       </header>
       { props.type === 'blog' && (
         <figure className="eu_card-image">

@@ -11,7 +11,8 @@ export const IndexPageTemplate = ({
   about_content,
   about_button_title,
   news_title,
-  articles
+  articles,
+  blogs,
 }) => {
   return (
     <div className="eu-columns container">
@@ -36,6 +37,26 @@ export const IndexPageTemplate = ({
          articles={articles}
        ></EuropeanenNews>
       </EuropeanenCard>
+      { blogs.map((blog, index) => {
+        const { slug: path} = blog.node.fields;
+        const { title, date, tags, description } = blog.node.frontmatter;
+        return (
+          <EuropeanenCard
+            type="blog"
+            title={title}
+            // image={}
+            // imgAlt={}
+            metadata={{
+              date,
+              tags
+            }}
+            headerColor={ index % 2 ? 'yellow' : 'red'}
+            body={description}
+            link={path}
+          >
+          </EuropeanenCard>
+        )
+      })}
     </div>
   )
 }
@@ -45,10 +66,12 @@ IndexPageTemplate.propTypes = {
   about_content: PropTypes.string,
   about_button_title: PropTypes.string,
   news_title: PropTypes.string,
-}
+  blogs: PropTypes.arrayOf(PropTypes.object),
+};
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  console.log({data})
+  const { frontmatter: pageFrontmatter } = data.markdownRemark;
   const [ articles, setArticles ] = useState([]);
 
   useEffect(() => {
@@ -62,8 +85,9 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        {...frontmatter}
+        {...pageFrontmatter}
         articles={articles}
+        blogs={data.allMarkdownRemark.edges}
       />
     </Layout>
   )
@@ -73,6 +97,10 @@ IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
+    }),
+    allMarkdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+      fields: PropTypes.object,
     }),
   }),
 }
@@ -88,6 +116,33 @@ export const pageQuery = graphql`
           about_button_title
           news_title
       }
+    }
+    allMarkdownRemark(
+        sort: {
+            order: DESC, fields: [frontmatter___date]
+        }
+        filter: {
+            frontmatter: {
+                templateKey: {
+                    eq: "blog-post"
+                }
+            }
+        }
+        limit: 10
+    ) {
+        edges {
+            node {
+                fields {
+                    slug
+                }
+                frontmatter {
+                    title
+                    date
+                    tags
+                    description
+                }
+            }
+        }
     }
   }
 `
