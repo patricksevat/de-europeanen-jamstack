@@ -1,9 +1,9 @@
-@import "~bulma/sass/utilities/initial-variables"
-
 $blue: #2551a8
 $white: #fff
 $footer-background-color: $blue
+$family-sans-serif: 'Cabin VF Beta', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 
+@import "~bulma/sass/utilities/initial-variables"
 @import "~bulma"
 
 
@@ -11,6 +11,43 @@ $footer-background-color: $blue
   background-color: $blue
   .navbar-item
     color: $white
+  .navbar-end
+    align-self: center
+    .input::-webkit-search-cancel-button
+      display: none
+    #search-input
+      fill: $blue
+
+.eu-columns
+  padding-top: 20px
+  -webkit-column-gap: 1.25rem
+  -moz-column-gap: 1.25rem
+  column-gap: 1.25rem
+
+@media (min-width: 544px)
+  .eu-columns
+    -webkit-column-count: 1
+    -moz-column-count: 1
+    column-count: 1
+
+@media (min-width: 767px)
+  .eu-columns
+    -webkit-column-count: 2
+    -moz-column-count: 2
+    column-count: 2
+
+@media (min-width: 1250px)
+  .eu-columns
+    -webkit-column-count: 3
+    -moz-column-count: 3
+    column-count: 3
+
+@media (min-width: 1250px)
+  .eu-columns
+    -webkit-column-count: 4
+    -moz-column-count: 4
+    column-count: 4
+
 
 .content .taglist
   list-style: none

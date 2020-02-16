@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'De Europeanen',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'De website De Europeanen vloeit voort uit de werkzaamheden van het Maatschappelijke Europa Netwerk (MEN).\n' +
+      'MEN was een netwerk voor maatschappelijke organisaties die met stakeholders en de huiskamers willen gaan communiceren over hun belang in Europa.',
   },
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -27,6 +29,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img`,
         name: 'images',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/fonts`,
+        name: 'fonts',
       },
     },
     'gatsby-plugin-sharp',
@@ -64,6 +73,14 @@ module.exports = {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        }
+      }
     },
     // TODO uncomment
     // {

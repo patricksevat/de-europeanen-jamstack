@@ -1,0 +1,43 @@
+$yellow: #ffcc00;
+$blue: #010080;
+$red: #ae1c27;
+
+.eu_card {
+  display: inline-block;
+  border: 1px solid $blue;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: relative;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  width: 100%;
+
+  &-header {
+    padding: 24px;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: 1px solid #010080;
+    font-weight: 400;
+
+    &--yellow {
+      background-color: $yellow
+    }
+
+    &--red {
+      background-color: $red
+    }
+
+    &--blue {
+      background-color: $blue
+    }
+  }
+
+  &-body {
+    padding: 20px;
+  }
+
+  &-footer {
+    padding: 0 20px 20px 20px;
+  }
+}

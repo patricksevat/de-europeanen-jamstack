@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
+import Search from '../img/search.inline.svg'
 import logo from '../../static/img/logo_MEN.png'
 
 const Navbar = class extends React.Component {
@@ -32,10 +32,17 @@ const Navbar = class extends React.Component {
     )
   }
 
+  handleSearchInput(event) {
+    if (event.key === 'Enter') {
+      // search
+    }
+    console.log({event}, event.target.value, event.key);
+  }
+
   render() {
     return (
       <nav
-        className="navbar"
+        className="navbar is-fixed-top"
         role="navigation"
         aria-label="main-navigation"
       >
@@ -60,33 +67,24 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
+              <Link className="navbar-item" to="/">
+                Home
               </Link>
               <Link className="navbar-item" to="/blog">
-                Blog
+                Alle artikelen
               </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
+              <Link className="navbar-item" to="/tags">
+                Categorieën
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
+              <Link className="navbar-item" to="/about">
+                Over de European
               </Link>
             </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
+            <div className="navbar-end control has-icons-right">
+              <input type="search" className="input" placeholder="Zoeken" onKeyUp={this.handleSearchInput.bind(this)}/>
+              <span className="icon is-right">
+                <Search title="zoek-icoon" id="search-input"></Search>
+              </span>
             </div>
           </div>
         </div>
