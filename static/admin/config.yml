@@ -54,8 +54,9 @@ collections:
     identifier_field: "name"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author"}
-      - {label: "Name", name: "name", widget: string}
-      - {label: "Profile picture", name: "profile_picture", widget: image, allow_multiple: false}
+      - {label: "Naam", name: "name", widget: string}
+      - {label: "Titel", name: "job_title", widget: string}
+      - {label: "Profielfoto", name: "profile_picture", widget: image, allow_multiple: false}
 
   - name: "pages"
     label: "Pages"
