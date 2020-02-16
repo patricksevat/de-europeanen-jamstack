@@ -37,7 +37,7 @@ export const IndexPageTemplate = ({
          articles={articles}
        ></EuropeanenNews>
       </EuropeanenCard>
-      { blogs.map((blog, index) => {
+      { blogs && blogs.map((blog, index) => {
         const { slug: path} = blog.node.fields;
         const { title, date, tags, description } = blog.node.frontmatter;
         return (
