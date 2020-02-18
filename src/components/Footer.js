@@ -22,7 +22,7 @@ const Footer = class extends React.Component {
             </Link>
           </div>
           <p className="is-size-7 has-text-centered">
-            (c) Maatschappelijk Europa Netwerk {new Date().getFullYear()}. Website door Webbureau Cr-8
+            (c) Maatschappelijk Europa Netwerk {new Date().getFullYear()}.<br/> Website door Webbureau Cr-8
           </p>
         </div>
 

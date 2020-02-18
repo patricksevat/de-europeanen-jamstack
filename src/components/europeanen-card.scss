@@ -1,6 +1,7 @@
 $yellow: #ffcc00;
 $blue: #010080;
 $red: #ae1c27;
+$border-bottom: 1px solid #010080;
 
 .eu_card {
   display: inline-block;
@@ -12,11 +13,12 @@ $red: #ae1c27;
   background-color: #fff;
   border-radius: .25rem;
   width: 100%;
+  max-width: 400px;
 
   &-header {
     padding: 24px;
     border-radius: 3px 3px 0px 0px;
-    border-bottom: 1px solid #010080;
+    border-bottom: $border-bottom;
     font-weight: 400;
 
     &-title {
@@ -34,6 +36,15 @@ $red: #ae1c27;
     &--blue {
       background-color: $blue
     }
+  }
+
+  &-image {
+    img {
+      object-fit: contain;
+      border-bottom: $border-bottom;
+    }
+
+    box-sizing: content-box;
   }
 
   &-body {

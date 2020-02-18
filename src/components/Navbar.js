@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Search from '../img/search.inline.svg'
 import logo from '../../static/img/logo_MEN.png'
 
+// TODO add tags to Navbar
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)

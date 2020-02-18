@@ -15,7 +15,10 @@ interface IArticleMetadata {
 interface ICardProps {
   type: 'blog' | 'other',
   title: string,
-  image?: string,
+  image?: {
+    src: string,
+    srcSet: string
+  },
   imgAlt?: string,
   headerColor: 'yellow' | 'red' | 'blue',
   author?: IEuropeanenAuthor,
@@ -25,22 +28,24 @@ interface ICardProps {
 }
 
 export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
+  console.log({props})
   return (
     <section className="eu_card">
       <header className={`eu_card-header eu_card-header--${props.headerColor}`}>
         { props.link ?
           <Link to={props.link}>
-            <h2 className="eu_card-header-title">{ props.title }</h2>
+            <h2 className="eu_card-header-title is-size-5">{ props.title }</h2>
           </Link>
         :
-          <h2 className="eu_card-header-title">{ props.title }</h2>
+          <h2 className="eu_card-header-title is-size-5">{ props.title }</h2>
         }
 
       </header>
       { props.type === 'blog' && (
         <figure className="eu_card-image">
           <img
-            src={ props.image || EUFlag}
+            src={ props?.image?.src || EUFlag }
+            srcSet={ props?.image?.srcSet }
             alt={ props.imgAlt || 'Foto behorend bij artikel'}
           />
         </figure>

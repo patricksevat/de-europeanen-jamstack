@@ -14,6 +14,8 @@ export const IndexPageTemplate = ({
   articles,
   blogs,
 }) => {
+  console.log(blogs)
+
   return (
     <div className="eu-columns container">
       <EuropeanenCard
@@ -39,20 +41,21 @@ export const IndexPageTemplate = ({
       </EuropeanenCard>
       { blogs && blogs.map((blog, index) => {
         const { slug: path} = blog.node.fields;
-        const { title, date, tags, description } = blog.node.frontmatter;
+        const { title, date, tags, description, featuredimage, featuredimage_alt } = blog.node.frontmatter;
         return (
           <EuropeanenCard
             type="blog"
             title={title}
-            // image={}
-            // imgAlt={}
+            image={featuredimage?.childImageSharp?.fluid}
+            imgAlt={featuredimage_alt}
             metadata={{
               date,
               tags
             }}
-            headerColor={ index % 2 ? 'yellow' : 'red'}
+            headerColor={ index % 2 ? 'blue' : 'red'}
             body={description}
             link={path}
+            key={path}
           >
           </EuropeanenCard>
         )
@@ -70,7 +73,6 @@ IndexPageTemplate.propTypes = {
 };
 
 const IndexPage = ({ data }) => {
-  console.log({data})
   const { frontmatter: pageFrontmatter } = data.markdownRemark;
   const [ articles, setArticles ] = useState([]);
 
@@ -140,6 +142,15 @@ export const pageQuery = graphql`
                     date
                     tags
                     description
+                    featuredimage {
+                        childImageSharp {
+                            fluid(maxWidth: 400) {
+                                src
+                                srcSet
+                            }
+                        }
+                    }
+                    featuredimage_alt
                 }
             }
         }
