@@ -4,7 +4,7 @@ Auteur: Wytske de Pater
 title: >-
   ANWB: Grenzeloos Goed. Het verenigd Europa heeft zijn voordelen. Vooral voor
   de toerist
-date: 2020-02-18T21:45:55.179Z
+date: 2016-08-22T20:45:00.000Z
 description: >-
   In 2014 verscheen in De Kampioen van de ANWB een artikel over de voordelen van
   de EU voor bv de vakantieganger. Zoals snelle hulp, comfortabele wegen, veilig
