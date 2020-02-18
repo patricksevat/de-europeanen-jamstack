@@ -1,13 +1,16 @@
 ---
 templateKey: blog-post
+Auteur: Lieke Schuitmaker
 title: Manifest VNONCW 'Geen woorden maar banen'
-date: 2020-02-09T15:11:40.445Z
+date: 2014-05-10T14:11:00.000Z
 description: >-
   Ter voorbereiding op de Europese Verkiezingen heeft VNONCW een manifest
   opgesteld. Doel is om de stem van het Nederlandse bedrijfsleven beter en
   luider te doen klinken in Europa.
-featuredpost: true
 featuredimage: /img/geen woorden maar banen.png
+featuredimage_alt: >-
+  Foto van de voorkant van het rapport "Geen woorden, maar banen. Voor een
+  Europa dat werkt"
 tags:
   - vnoncw
   - europese verkiezingen
