@@ -11,6 +11,10 @@ description: >-
   aanname, waarna hij knikte en zich omdraaide. Stiekem bekeek ik hem. “Zou hij
   ‘tegen’ hebben gestemd?”, vroeg ik mij af?
 featuredimage_alt: .
+tags:
+  - Europees project
+  - referendum
+  - Europese Unie
 ---
 <!--StartFragment-->
 
@@ -25,5 +29,3 @@ Behalve onwetendheid stuitte ik op een andere, niet te negeren emotie: negativis
 Er zijn tegenwoordig problemen te over, en oplossingen dienen zich maar langzaam aan. Uitdagingen uit alle hoeken van de wereld dringen zich aan ons op. En dan de vluchtelingen. Ik en velen met mij zien dit proces met lede ogen aan. Wat blijft, is vooral een gevoel van onmacht. Wat ook niet echt helpt, is dat het soms lastig is op waarheid gebaseerd nieuws te vinden en daar een rode lijn uit te halen. Dit geldt zeker ook in het geval van de EU, waar zoveel gebeurd dat het haast onmogelijk is alles te coveren. Dus zijn we genoodzaakt ons vertrouwen te schenken aan politici; voor sommigen een verontrustende gedachte. Knappe koppen buigen zich nu dag en nacht over allerlei complexe vraagstukken, maar met velen nationale verkiezingen en gerommel aan de buitengrenzen in het vooruitzicht blijft de koers van de EU voorlopig onvoorspelbaar.
 
 Ook in Nederland zijn er binnen niet al te lange tijd verkiezingen. De PVV blijft groeien in de peilingen en in Brussel zal er hard aan het eigen imago gewerkt moeten worden. Ik heb grote bewondering voor het Europese project; voor mij is het nog altijd dé oplossing voor veel uitdagingen die we als klein land tegenkomen. Onder meer door dit artikel hoop ik bij te dragen aan een iets positiever imago van de Europese Unie. En nee, de EU is verre van perfect, maar ze is belángrijk. Echter is dit animeren van het Europese volk niet alleen mijn taak, of die van D66 en de Brusselse politici. Het is de taak van ons allemaal; van de Nederlandse politiek tot Henk en Ingrid. Wat de discussies betreft, ben ik zelf trouwens ondertussen bekomen van de schrik. Ik praat regelmatig met Eurocritici, binnen en buiten mijn Bubbel. Als ik hen ten minste al een tipje van de positieve sluier kan laten zien, ben ik een tevreden mens.
-
-<!--EndFragment-->
