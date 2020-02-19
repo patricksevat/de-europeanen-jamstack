@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 import { EuropeanenCard } from '../components/EuropeanenCard'
 import { EuropeanenNews } from '../components/EuropeanenNews';
+import { EuropeanenBlog } from '../components/EuropeanenBlogs';
 
 export const IndexPageTemplate = ({
   about_title,
@@ -13,62 +14,57 @@ export const IndexPageTemplate = ({
   news_title,
   articles,
   blogs,
+  totalBlogs
 }) => {
-  console.log(blogs)
+  const blogCount = blogs?.length;
 
   return (
-    <div className="eu-columns container">
-      <EuropeanenCard
-        id="about-card"
-        type={'other'}
-        title={about_title}
-        headerColor={'yellow'}
-        body={about_content}
-      >
-        <button className="button is-link is-outlined">
-          { about_button_title }
-        </button>
-      </EuropeanenCard>
-      <EuropeanenCard
-        id="news-card"
-        type={'other'}
-        title={news_title}
-        headerColor={'yellow'}
-      >
-       <EuropeanenNews
-         articles={articles}
-       ></EuropeanenNews>
-      </EuropeanenCard>
-      { blogs && blogs.map((blog, index) => {
-        const { slug: path} = blog.node.fields;
-        const { title, date, tags, description, featuredimage, featuredimage_alt } = blog.node.frontmatter;
-        return (
-          <EuropeanenCard
-            type="blog"
-            title={title}
-            image={featuredimage?.childImageSharp?.fluid}
-            imgAlt={featuredimage_alt}
-            metadata={{
-              date,
-              tags
-            }}
-            headerColor={ index % 2 ? 'blue' : 'red'}
-            body={description}
-            link={path}
-            key={path}
-          >
-          </EuropeanenCard>
-        )
-      })}
-    </div>
+    <section id="main" className="section">
+      <div className="eu-columns">
+        <EuropeanenCard
+          id="about-card"
+          type={'other'}
+          title={about_title}
+          headerColor={'yellow'}
+          body={about_content}
+        >
+          <button className="button is-link is-outlined">
+            { about_button_title }
+          </button>
+        </EuropeanenCard>
+        <EuropeanenCard
+          id="news-card"
+          type={'other'}
+          title={news_title}
+          headerColor={'yellow'}
+        >
+          <EuropeanenNews
+            articles={articles}
+          ></EuropeanenNews>
+        </EuropeanenCard>
+        <EuropeanenBlog
+          blogs={blogs}
+        ></EuropeanenBlog>
+      </div>
+
+      { totalBlogs > blogCount && (
+        <div className="container">
+          <Link className="level-item">
+            <button className="button is-link is-outlined">Meer artikelen</button>
+          </Link>
+        </div>
+      )}
+    </section>
+
   )
-}
+};
 
 IndexPageTemplate.propTypes = {
   about_title: PropTypes.string,
   about_content: PropTypes.string,
   about_button_title: PropTypes.string,
   news_title: PropTypes.string,
+  totalBlogs: PropTypes.number,
   blogs: PropTypes.arrayOf(PropTypes.object),
 };
 
@@ -90,6 +86,7 @@ const IndexPage = ({ data }) => {
         {...pageFrontmatter}
         articles={articles}
         blogs={data.allMarkdownRemark.edges}
+        totalBlogs={data.allMarkdownRemark.totalCount}
       />
     </Layout>
   )
@@ -101,6 +98,7 @@ IndexPage.propTypes = {
       frontmatter: PropTypes.object,
     }),
     allMarkdownRemark: PropTypes.shape({
+      totalCount: PropTypes.number,
       frontmatter: PropTypes.object,
       fields: PropTypes.object,
     }),
@@ -130,8 +128,9 @@ export const pageQuery = graphql`
                 }
             }
         }
-        limit: 10
+        limit: 6
     ) {
+        totalCount
         edges {
             node {
                 fields {

@@ -29,7 +29,26 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges;
+
+    // Creating blog overview page (6 blogs per page)
+    const blogs = posts.filter(post => post.node.frontmatter.templateKey === 'blog-post');
+    const postsPerPage = 6
+    const numPages = Math.ceil(blogs.length / postsPerPage)
+
+    Array.from({ length: numPages })
+    .forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blog` : `/blog/${ i + 1 }`,
+        component: path.resolve("./src/templates/blog-overview.tsx"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      })
+    });
 
     posts.forEach(edge => {
       const id = edge.node.id

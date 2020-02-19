@@ -5,19 +5,7 @@ title: 'Het antwoord op rechts populisme: Volt'
 date: 2019-03-12T21:56:00.000Z
 description: >-
   Rechts populisme is in de Europese Unie anno 2019 wint steeds meer terrein.
-  Voorbeelden hiervan zijn te vinden in Italië, waar de eerste populistische
-  regering is beëdigd en bestaat uit een coalitie tussen de Italiaanse
-  Vijfsterrenbeweging en de anti-migratiepartij “Lega” (NOS, 2018). Echter is
-  dit slechts één uit vele voorbeelden van de snelle verspreiding van het
-  populistische gedachtegoed in de Europese Unie. In Nederland is deze trend
-  namelijk ook zichtbaar. Zo won de PVV bij de laatste Tweede Kamerverkiezingen
-  een flink aantal zetels en wordt het Forum van Democratie genoemd voor de
-  mogelijkheid om een populistische fractie op te richten in het Europees
-  Parlement samen met andere populistische partijen (Trouw, 2019). Haaks op het
-  (rechts-)populistische gedachtegoed waarin de Europese Unie niet bijzonder
-  positief in het daglicht wordt gezet staan de zogenaamde Pan-Europese
-  partijen, maar deze zijn door de opkomst van het populisme meer op de
-  achtergrond geraakt. Toch probeert de partij “Volt” hier verandering in te
+  Toch probeert de partij “Volt” hier verandering in te
   brengen door het oude concept van een Pan-Europese Unie weer af te stoffen en
   een partijprogramma  te maken die past bij 2019.
 featuredimage: /img/Volt_EU_RGB.png

@@ -1,7 +1,4 @@
-$blue: #2551a8
-$white: #fff
-$footer-background-color: $blue
-$family-sans-serif: 'Cabin VF Beta', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+@import "./variables"
 
 @import "~bulma/sass/utilities/initial-variables"
 @import "~bulma"
@@ -23,6 +20,9 @@ $family-sans-serif: 'Cabin VF Beta', BlinkMacSystemFont, -apple-system, "Segoe U
   -webkit-column-gap: 1.25rem
   -moz-column-gap: 1.25rem
   column-gap: 1.25rem
+
+.page-header
+  background-color: $red-lighter
 
 @media (min-width: 544px)
   .eu-columns
