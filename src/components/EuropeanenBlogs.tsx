@@ -1,21 +1,23 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Fragment } from 'react';
 import { EuropeanenCard } from './EuropeanenCard';
-import { IBlog } from '../types';
+import { IBlog, IEuropeanenAuthor } from '../types';
 
 interface IBlogProps {
-  blogs: IBlog[]
+  blogs: IBlog[],
+  authors: IEuropeanenAuthor[],
 }
 
-export const EuropeanenBlog: FunctionComponent<IBlogProps> = ({ blogs }) => {
+export const EuropeanenBlog: FunctionComponent<IBlogProps> = ({ blogs, authors }) => {
   if (!blogs || !blogs.length) {
     return null;
   }
 
   return (
-    <div>
-      { blogs.map((blog, index) => {
+    <Fragment>
+      { blogs.map((blog: IBlog, index) => {
         const { slug: path} = blog.node.fields;
-        const { title, date, tags, description, featuredimage, featuredimage_alt } = blog.node.frontmatter;
+        const { title, date, tags, description, featuredimage, featuredimage_alt, author: authorName } = blog.node.frontmatter;
+        const author = authors.find(author => author.frontmatter.name === authorName);
         return (
           <EuropeanenCard
             type="blog"
@@ -31,10 +33,11 @@ export const EuropeanenBlog: FunctionComponent<IBlogProps> = ({ blogs }) => {
             body={description}
             link={path}
             key={path}
+            author={author}
           >
           </EuropeanenCard>
         )
       })}
-    </div>
+    </Fragment>
   )
 };

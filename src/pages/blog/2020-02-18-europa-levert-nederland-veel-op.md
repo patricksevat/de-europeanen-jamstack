@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Sybrig van Keep
+author: Sybrig van Keep
 title: Europa levert Nederland veel op
 date: 2016-08-22T19:18:00.000Z
 description: >-

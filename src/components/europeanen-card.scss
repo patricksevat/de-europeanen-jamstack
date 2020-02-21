@@ -35,13 +35,39 @@
     }
   }
 
+  &-img_wrapper {
+    position: relative;
+  }
+
   &-image {
+    display: block;
     img {
       object-fit: contain;
       border-bottom: $border-bottom;
     }
-
     box-sizing: content-box;
+  }
+
+  &-author {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    padding: 3px;
+    max-height: 100%;
+    display: flex;
+  }
+
+  &-author_bio {
+    margin-left: 8px;
+  }
+
+  &-author_profile_img {
+    align-self: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255,255,255,.9);
   }
 
   &-body {

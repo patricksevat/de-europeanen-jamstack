@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Lieke Schuitmaker
+author: Lieke Schuitmaker
 title: Manifest VNONCW 'Geen woorden maar banen'
 date: 2014-05-10T14:11:00.000Z
 description: >-

@@ -55,9 +55,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
+        component: getTemplate(edge.node.frontmatter.templateKey),
         // additional data can be passed via context
         context: {
           id,
@@ -104,3 +102,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+const getTemplate = (templateKey) => {
+  if (templateKey === 'author') {
+    return path.resolve(
+      `src/templates/${String(templateKey)}.tsx`
+    )
+  }
+
+  return path.resolve(
+    `src/templates/${String(templateKey)}.js`
+  )
+};

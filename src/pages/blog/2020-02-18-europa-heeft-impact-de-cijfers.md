@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Jolande Wijman
+author: Jolande Wijman
 title: Europa heeft impact | de cijfers
 date: 2017-04-17T20:51:00.000Z
 description: >-

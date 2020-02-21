@@ -14,7 +14,8 @@ export const IndexPageTemplate = ({
   news_title,
   articles,
   blogs,
-  totalBlogs
+  totalBlogs,
+  authors,
 }) => {
   const blogCount = blogs?.length;
 
@@ -44,12 +45,13 @@ export const IndexPageTemplate = ({
         </EuropeanenCard>
         <EuropeanenBlog
           blogs={blogs}
+          authors={authors}
         ></EuropeanenBlog>
       </div>
 
       { totalBlogs > blogCount && (
         <div className="container">
-          <Link className="level-item">
+          <Link to="/blog/2" className="level-item">
             <button className="button is-link is-outlined">Meer artikelen</button>
           </Link>
         </div>
@@ -70,6 +72,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter: pageFrontmatter } = data.markdownRemark;
+  const authors = data.authors.nodes;
   const [ articles, setArticles ] = useState([]);
 
   useEffect(() => {
@@ -87,6 +90,7 @@ const IndexPage = ({ data }) => {
         articles={articles}
         blogs={data.allMarkdownRemark.edges}
         totalBlogs={data.allMarkdownRemark.totalCount}
+        authors={authors}
       />
     </Layout>
   )
@@ -141,6 +145,7 @@ export const pageQuery = graphql`
                     date
                     tags
                     description
+                    author
                     featuredimage {
                         childImageSharp {
                             fluid(maxWidth: 400) {
@@ -150,6 +155,21 @@ export const pageQuery = graphql`
                         }
                     }
                     featuredimage_alt
+                }
+            }
+        }
+    }
+    authors: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author"}}}) {
+        nodes {
+            frontmatter {
+                name
+                job_title
+                profile_picture {
+                    childImageSharp {
+                        original {
+                            src
+                        }
+                    }
                 }
             }
         }

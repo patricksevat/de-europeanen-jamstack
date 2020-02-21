@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Wytske de Pater
+author: Wytske de Pater
 title: >-
   ANWB: Grenzeloos Goed. Het verenigd Europa heeft zijn voordelen. Vooral voor
   de toerist

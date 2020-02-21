@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Sybrig van Keep
+author: Sybrig van Keep
 title: 'Het antwoord op rechts populisme: Volt'
 date: 2019-03-12T21:56:00.000Z
 description: >-

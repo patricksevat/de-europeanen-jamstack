@@ -8,6 +8,7 @@ export interface IBlog {
       description: string,
       date: string,
       tags: string[],
+      author: string,
       featuredimage_alt: string,
       featuredimage?: {
         childImageSharp: {

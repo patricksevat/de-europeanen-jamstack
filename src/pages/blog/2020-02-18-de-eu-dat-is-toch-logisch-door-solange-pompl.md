@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Francien van Bohemen
+author: Francien van Bohemen
 title: 'De EU, dat is toch logisch? door Solange Pompl'
 date: 2016-09-26T20:49:00.000Z
 description: >-

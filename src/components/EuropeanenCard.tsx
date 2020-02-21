@@ -13,6 +13,7 @@ interface IArticleMetadata {
 }
 
 interface ICardProps {
+  id?: string,
   type: 'blog' | 'other',
   title: string,
   image?: {
@@ -28,9 +29,8 @@ interface ICardProps {
 }
 
 export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
-  console.log({props})
   return (
-    <section className="eu_card">
+    <section className="eu_card" id={props.id}>
       <header className={`eu_card-header eu_card-header--${props.headerColor}`}>
         { props.link ?
           <Link to={props.link}>
@@ -42,24 +42,32 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
 
       </header>
       { props.type === 'blog' && (
-        <figure className="eu_card-image">
-          <img
-            src={ props?.image?.src || EUFlag }
-            srcSet={ props?.image?.srcSet }
-            alt={ props.imgAlt || 'Foto behorend bij artikel'}
-          />
-        </figure>
-      )}
-      {!!props.author && (
-        <div className="eu_card-author">
-          <figure className="eu_card-author_profile_img">
+        <div className="eu_card-img_wrapper">
             <img
-              src={ props.author.profileImg}
-              alt={ `Foto van ${props.author.name}, auteur van dit artikel`}
+              className="eu_card-image"
+              src={ props?.image?.src || EUFlag }
+              srcSet={ props?.image?.srcSet }
+              alt={ props.imgAlt || 'Foto behorend bij artikel'}
             />
-          </figure>
-          <span className="eu_card-author-name">{ props.author.name }</span>
-          <span className="eu_card-author-job-title">{ props.author.jobTitle }</span>
+          {!!props.author && (
+            <div className="eu_card-author">
+              <img
+                className="eu_card-author_profile_img"
+                src={ props.author?.frontmatter?.profile_picture?.childImageSharp?.original?.src }
+                alt={ `Foto van ${props.author.name}, auteur van dit artikel`}
+              />
+              <div className="eu_card-author_bio">
+                <span className="eu_card-author-name has-text-white">
+                  { props.author.frontmatter.name }
+                </span>
+                <br/>
+                <span className="eu_card-author-job-title has-text-white is-size-7">
+                  { props.author.frontmatter.job_title }
+                </span>
+              </div>
+
+            </div>
+          )}
         </div>
       )}
       {!!props.body &&

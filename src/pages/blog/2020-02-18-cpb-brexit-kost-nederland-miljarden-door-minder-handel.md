@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Lieke Schuitmaker
+author: Lieke Schuitmaker
 title: 'CPB: Brexit kost Nederland miljarden door minder handel'
 date: 2016-08-17T19:12:00.000Z
 description: >-

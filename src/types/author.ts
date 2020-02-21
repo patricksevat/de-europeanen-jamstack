@@ -1,5 +1,13 @@
 export interface IEuropeanenAuthor {
-  name: string,
-  jobTitle?: string,
-  profileImg: string,
+  frontmatter: {
+    name: string,
+    job_title?: string,
+    profile_picture: {
+      childImageSharp: {
+        original: {
+          src: string
+        }
+      }
+    },
+  },
 }

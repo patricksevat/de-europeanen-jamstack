@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-Auteur: Lieke Schuitmaker
+author: Lieke Schuitmaker
 title: Heeft sociale woningbouw wat met Europa te maken?
 date: 2014-08-14T19:02:00.000Z
 description: >-
