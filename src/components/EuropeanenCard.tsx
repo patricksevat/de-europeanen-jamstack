@@ -3,6 +3,7 @@ import { IEuropeanenAuthor } from '../types';
 import EUFlag from '../img/eu-flag.svg'
 import './europeanen-card.scss'
 import { Link } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
 
 type HTMLString = string;
 
@@ -29,6 +30,7 @@ interface ICardProps {
 }
 
 export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
+  console.log(props);
   return (
     <section className="eu_card" id={props.id}>
       <header className={`eu_card-header eu_card-header--${props.headerColor}`}>
@@ -74,6 +76,23 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
         <div className="eu_card-body" dangerouslySetInnerHTML={{
           __html: props.body
         }}></div>
+      }
+      {!!props.metadata &&
+        <div className="eu_card-metadata">
+          <span className="eu_card-date is-size-7 has-text-grey-light">
+            {new Date(props.metadata.date).toLocaleDateString('nl-NL', {day: 'numeric', month: 'long', year: 'numeric'})}
+          </span>
+          <br/>
+          {props.metadata.tags &&
+            <span className="eu_card-date is-size-7 has-text-grey-light">
+              # {props.metadata?.tags?.map((tag, i) => (
+                <Link to={`/tags/${kebabCase(tag)}`}>
+                  <div className="eu_card-tag has-text-grey-light">{ tag }</div>
+                </Link>
+            ))}
+            </span>
+          }
+        </div>
       }
       <div className="eu_card-footer">
         { props.children }
