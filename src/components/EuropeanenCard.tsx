@@ -30,7 +30,6 @@ interface ICardProps {
 }
 
 export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
-  console.log(props);
   return (
     <section className="eu_card" id={props.id}>
       <header className={`eu_card-header eu_card-header--${props.headerColor}`}>

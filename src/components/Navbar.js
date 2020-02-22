@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link, StaticQuery } from 'gatsby'
 import Search from '../img/search.inline.svg'
 import logo from '../../static/img/logo_MEN.png'
 
@@ -41,6 +41,15 @@ const Navbar = class extends React.Component {
   }
 
   render() {
+    console.log({props: this.props});
+    const tags = this.props.data.allMarkdownRemark.nodes.reduce((aggregator, node) => {
+      if (!node.frontmatter.tags?.length) {
+        return aggregator
+      }
+      return [...aggregator, ...node.frontmatter.tags.map(tag => tag.toLowerCase())]
+    }, []);
+    const uniqueTags = Array.from(new Set(tags));
+
     return (
       <nav
         className="navbar is-fixed-top"
@@ -74,9 +83,18 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/blog">
                 Alle artikelen
               </Link>
-              <Link className="navbar-item" to="/tags">
-                Categorieën
-              </Link>
+              <div className="navbar-item has-dropdown is-hoverable">
+                <Link to="/tags" className="navbar-link has-text-white">
+                  Categorieën
+                </Link>
+                <div className="navbar-dropdown is-boxed">
+                  { uniqueTags.map(tag => (
+                    <Link to={`/tags/${tag}`} className="navbar-item">
+                      { tag }
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link className="navbar-item" to="/about">
                 Over de European
               </Link>
@@ -94,4 +112,21 @@ const Navbar = class extends React.Component {
   }
 }
 
-export default Navbar
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query tagQuery {
+        allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "blog-post"}}}) {
+          nodes {
+            frontmatter {
+              tags
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Navbar data={data} {...props}></Navbar>}
+  >
+
+  </StaticQuery>
+)
