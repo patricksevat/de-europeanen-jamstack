@@ -6,14 +6,22 @@
 
 .navbar
   background-color: $blue
-  .navbar-item
-    color: $white
+  //.navbar-item
+  //  color: $white
   .navbar-end
     align-self: center
     .input::-webkit-search-cancel-button
       display: none
     #search-input
       fill: $blue
+  .has-dropdown
+    .navbar-item
+      color: $blue
+  .has-dropdown:hover
+    .navbar-link
+      color: $blue
+    .navbar-link::after
+      border-color: $blue
 
 .eu-columns
   padding-top: 20px

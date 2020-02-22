@@ -15,6 +15,7 @@ interface IBlogIndexTemplateProps {
 
 const BlogIndexTemplate: FunctionComponent<IBlogIndexTemplateProps> = (props) => {
   const blogs = props?.data?.allMarkdownRemark?.edges || [];
+  const authors = props?.data?.authors?.nodes;
   console.log(props);
   return (
     <Layout>
@@ -23,6 +24,7 @@ const BlogIndexTemplate: FunctionComponent<IBlogIndexTemplateProps> = (props) =>
         <div className="eu-columns">
           <EuropeanenBlog
             blogs={blogs}
+            authors={authors}
           ></EuropeanenBlog>
         </div>
       </section>
@@ -67,6 +69,21 @@ export const pageQuery = graphql`
                             }
                         }
                         featuredimage_alt
+                    }
+                }
+            }
+        }
+        authors: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "author"}}}) {
+            nodes {
+                frontmatter {
+                    name
+                    job_title
+                    profile_picture {
+                        childImageSharp {
+                            original {
+                                src
+                            }
+                        }
                     }
                 }
             }

@@ -18,6 +18,16 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               tags
               templateKey
+              author
+              name
+              job_title
+              profile_picture {
+                  childImageSharp {
+                      original {
+                          src
+                      }
+                  }
+              }
             }
           }
         }
@@ -50,15 +60,21 @@ exports.createPages = ({ actions, graphql }) => {
       })
     });
 
+    const authors = posts.filter(post => post.node.frontmatter.templateKey === 'author');
+    console.log({ authorExample: authors[0]})
+
     posts.forEach(edge => {
       const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
-        component: getTemplate(edge.node.frontmatter.templateKey),
+        component: path.resolve(
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`
+        ),
         // additional data can be passed via context
         context: {
           id,
+          author: authors.find((author) => author.node.frontmatter.name === edge.node.frontmatter.author)
         },
       })
     })
@@ -80,7 +96,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       createPage({
         path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
+        component: path.resolve(`src/templates/tags.tsx`),
         context: {
           tag,
         },
@@ -102,15 +118,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
-const getTemplate = (templateKey) => {
-  if (templateKey === 'author') {
-    return path.resolve(
-      `src/templates/${String(templateKey)}.tsx`
-    )
-  }
-
-  return path.resolve(
-    `src/templates/${String(templateKey)}.js`
-  )
-};

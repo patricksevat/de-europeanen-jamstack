@@ -55,7 +55,7 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
               <img
                 className="eu_card-author_profile_img"
                 src={ props.author?.frontmatter?.profile_picture?.childImageSharp?.original?.src }
-                alt={ `Foto van ${props.author.name}, auteur van dit artikel`}
+                alt={ `Foto van ${props.author.frontmatter.name}, auteur van dit artikel`}
               />
               <div className="eu_card-author_bio">
                 <span className="eu_card-author-name has-text-white">

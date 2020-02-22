@@ -41,14 +41,20 @@ const Navbar = class extends React.Component {
   }
 
   render() {
-    console.log({props: this.props});
-    const tags = this.props.data.allMarkdownRemark.nodes.reduce((aggregator, node) => {
-      if (!node.frontmatter.tags?.length) {
-        return aggregator
-      }
-      return [...aggregator, ...node.frontmatter.tags.map(tag => tag.toLowerCase())]
+    // flatten, transf to lowercase and filter falsy tags
+    const tags = this.props.data.allMarkdownRemark.nodes.flatMap( node => {
+      const nodeTags = node?.frontmatter?.tags || [];
+      return nodeTags.reduce((aggr, tag) => {
+        if (!tag) {
+          return aggr;
+        }
+
+        aggr.push(tag.toLowerCase());
+        return aggr;
+      }, [])
     }, []);
-    const uniqueTags = Array.from(new Set(tags));
+    // dedupe and sort alphabetically
+    const uniqueTags = Array.from(new Set(tags)).sort();
 
     return (
       <nav
@@ -84,12 +90,12 @@ const Navbar = class extends React.Component {
                 Alle artikelen
               </Link>
               <div className="navbar-item has-dropdown is-hoverable">
-                <Link to="/tags" className="navbar-link has-text-white">
+                <Link to="/tags" className="navbar-link">
                   Categorieën
                 </Link>
                 <div className="navbar-dropdown is-boxed">
                   { uniqueTags.map(tag => (
-                    <Link to={`/tags/${tag}`} className="navbar-item">
+                    <Link key={tag} to={`/tags/${tag}`} className="navbar-item">
                       { tag }
                     </Link>
                   ))}
