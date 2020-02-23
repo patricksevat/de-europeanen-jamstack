@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
-import './blog-post.scss';
-import { IEuropeanenAuthor } from '../types';
-import EuropeanenAuthor from '../components/EuropeanenAuthor';
+import EuropeanenBlogMeta from '../components/EuropeanenBlogMeta';
 import EuropeanenBlogImage from '../components/EuropeanenBlogImage';
+import { IEuropeanenAuthor } from '../types';
+
+import './blog-post.scss';
 
 export const BlogPostTemplate = ({
   content,
@@ -18,7 +20,10 @@ export const BlogPostTemplate = ({
   helmet,
   author,
   image,
-  image_alt
+  image_alt,
+  attachment,
+  attachmentDescription,
+  comments,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -29,17 +34,18 @@ export const BlogPostTemplate = ({
         alt={image_alt}
       >
       </EuropeanenBlogImage>
-      <EuropeanenAuthor
+      <EuropeanenBlogMeta
+        comments={comments}
         author={author}
-      ></EuropeanenAuthor>
-      <section className="section">
+        attachment={attachment}
+        attachmentDescription={attachmentDescription}
+        title={title}
+      ></EuropeanenBlogMeta>
+      <section className="eu_blog section">
         {helmet || ''}
         <div className="container content">
           <div className="columns">
             <div className="column is-10 is-offset-1 is-6-desktop is-offset-3-desktop">
-              <h1 className="title is-size-2 is-bold-light">
-                {title}
-              </h1>
               <PostContent content={content} className={'blog-body'} />
               {tags && tags.length ? (
                 <div style={{ marginTop: `4rem` }}>
@@ -62,6 +68,8 @@ export const BlogPostTemplate = ({
 }
 
 BlogPostTemplate.propTypes = {
+  attachment: PropTypes.object,
+  attachmentDescription: PropTypes.string,
   image: PropTypes.object,
   image_alt: PropTypes.string,
   content: PropTypes.node.isRequired,
@@ -73,13 +81,15 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = (props) => {
   const author: IEuropeanenAuthor = props.pageContext.author.node;
-  const { markdownRemark: post } = props.data;
+  const post = props.data.markdownRemark;
 
   return (
     <Layout>
       <BlogPostTemplate
         image={post.frontmatter.featuredimage}
         image_alt={post.frontmatter.featuredimage_alt}
+        attachment={post.frontmatter.attachment}
+        attachmentDescription={post.frontmatter.attachment_description}
         content={post.html}
         contentComponent={HTMLContent}
         author={author}
@@ -94,6 +104,7 @@ const BlogPost = (props) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        comments={0}
       />
     </Layout>
   )
@@ -127,6 +138,11 @@ export const pageQuery = graphql`
             }
         }
         featuredimage_alt
+        attachment {
+          publicURL
+        }
+        attachment_description
+        # comments
       }
     }
   }

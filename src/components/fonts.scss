@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Cabin VF Beta";
-  font-weight: 400;
   font-style: normal;
-  src: url("CabinVFBeta.ttf") format("ttf");
+  src: url("../fonts/CabinVFBeta.ttf");
   font-display: swap;
+  font-weight: 400;
 }
 @font-face {
   font-family: "Cabin VF Beta";
   font-weight: 400;
   font-style: italic;
-  src: url("CabinVFBeta-Italic.ttf") format("ttf");
+  src: url("../fonts/CabinVFBeta-Italic.ttf");
   font-display: swap;
 }

@@ -61,7 +61,6 @@ exports.createPages = ({ actions, graphql }) => {
     });
 
     const authors = posts.filter(post => post.node.frontmatter.templateKey === 'author');
-    console.log({ authorExample: authors[0]})
 
     posts.forEach(edge => {
       const id = edge.node.id

@@ -14,6 +14,7 @@ featuredimage_alt: >-
 tags:
   - vnoncw
   - europese verkiezingen
+attachment_description: Manifest VNONCW 2014
 ---
 De Europese Unie heeft bedrijven veel te bieden. In potentie is de Europese afzetmarkt gigantisch. De culturele diversiteit en de goede kennis- en innovatiepositie maken van Europa nog altijd een aantrekkelijke vestigingslocatie. Maar dat moet wel zo blijven! 
 

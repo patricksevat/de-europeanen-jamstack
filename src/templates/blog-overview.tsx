@@ -34,6 +34,7 @@ const BlogIndexTemplate: FunctionComponent<IBlogIndexTemplateProps> = (props) =>
 
 export default BlogIndexTemplate;
 
+// TODO authors query is no longer needed
 export const pageQuery = graphql`
     query BlogOverviewTemplate($skip: Int!, $limit: Int!) {
         allMarkdownRemark(

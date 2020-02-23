@@ -1,7 +1,27 @@
 @import './variables';
 
-.eu_author {
+.eu_blog_meta {
   background: $red;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-title {
+    text-align: center;
+  }
+
+  &-author_wrapper {
+    display: flex;
+  }
+
+  &-author_post_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   &-profile_img {
     align-self: center;
@@ -9,5 +29,39 @@
     width: 70px;
     height: 70px;
     border: 3px solid rgba(255,255,255,.9);
+  }
+
+  &-job_title {
+    font-style: italic;
+  }
+
+  &-author_metadata, &-post_metadata {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+
+  &-author_metadata {
+    margin-left: 13px;
+  }
+
+  &-post_metadata {
+    line-height: 1;
+
+    span {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+
+    .icon, svg {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.5rem;
+    }
   }
 }

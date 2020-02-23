@@ -38,13 +38,6 @@ module.exports = {
         name: 'images',
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/fonts`,
-        name: 'fonts',
-      },
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

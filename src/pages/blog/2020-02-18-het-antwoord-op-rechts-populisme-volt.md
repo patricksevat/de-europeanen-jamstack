@@ -11,6 +11,7 @@ description: >-
 featuredimage: /img/Volt_EU_RGB.png
 featuredimage_alt: Logo van de politieke partij Volt
 attachment: /img/20190121 - Pitch deck Volt (1).pdf
+attachment_description: Partijprogramma Volt
 tags:
   - Europese verkiezingen
   - ''

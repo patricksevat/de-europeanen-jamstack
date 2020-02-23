@@ -1,4 +1,8 @@
 .blog-body::first-letter {
   font-size: 2em;
-  font-weight: 700;
+  font-weight: 300;
+}
+
+.blog-body {
+  text-align: justify;
 }

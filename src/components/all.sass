@@ -1,13 +1,15 @@
 @import "./variables"
+@import "./fonts"
 
 @import "~bulma/sass/utilities/initial-variables"
 @import "~bulma"
 
+body
+  // wght range 95-128, wdth range 0-100
+  font-variation-settings: 'wght' 95, 'wdth' 0
 
 .navbar
   background-color: $blue
-  //.navbar-item
-  //  color: $white
   .navbar-end
     align-self: center
     .input::-webkit-search-cancel-button

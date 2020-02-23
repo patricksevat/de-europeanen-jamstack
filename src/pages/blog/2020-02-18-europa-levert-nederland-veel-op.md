@@ -17,6 +17,7 @@ description: >-
 featuredimage: /img/The Greenery Wie zaait zal oogsten_0.png
 featuredimage_alt: 'Foto van de voorkant van het rapport "Wie zaait, zal oogsten"'
 attachment: /img/Wie zaait zal oogsten The Greenery maart 2012.pdf
+attachment_description: Rapport The Greenery 2012
 ---
 In 2012 heeft De Greenery een rapport uitgebracht over het belang van de Europese Unie voor een gezonde Nederlandse economie. Het is bedoeld als kennisbron en discussiestuk in een tijd waarin de steun voor Europese integratie onder druk staat.
 

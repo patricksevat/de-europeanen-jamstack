@@ -10,6 +10,7 @@ description: >-
 featuredimage: /img/Europa heeft impact_0.png
 featuredimage_alt: Infographic van de factsheet "Europa heeft impact" van ERAC
 attachment: /img/ERAC_Europaheeftimpact_DEF_1.pdf
+attachment_description: Factsheet Europa heeft impact | de cijfers
 tags:
   - Europa
   - impact

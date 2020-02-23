@@ -24,7 +24,7 @@ interface ICardProps {
   imgAlt?: string,
   headerColor: 'yellow' | 'red' | 'blue',
   author?: IEuropeanenAuthor,
-  body: HTMLString,
+  body?: HTMLString,
   metadata?: IArticleMetadata,
   link?: string,
 }
@@ -85,7 +85,7 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
           {props.metadata.tags &&
             <span className="eu_card-date is-size-7 has-text-grey-light">
               # {props.metadata?.tags?.map((tag, i) => (
-                <Link to={`/tags/${kebabCase(tag)}`}>
+                <Link key={tag} to={`/tags/${kebabCase(tag)}`}>
                   <div className="eu_card-tag has-text-grey-light">{ tag }</div>
                 </Link>
             ))}
