@@ -102,7 +102,7 @@ const Navbar = class extends React.Component {
                 </div>
               </div>
               <Link className="navbar-item" to="/about">
-                Over de European
+                Over de Europeanen
               </Link>
             </div>
             <div className="navbar-end control has-icons-right">
