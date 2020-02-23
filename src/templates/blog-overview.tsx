@@ -16,7 +16,6 @@ interface IBlogIndexTemplateProps {
 const BlogIndexTemplate: FunctionComponent<IBlogIndexTemplateProps> = (props) => {
   const blogs = props?.data?.allMarkdownRemark?.edges || [];
   const authors = props?.data?.authors?.nodes;
-  console.log(props);
   return (
     <Layout>
       <h1 className="page-header is-size-2 has-text-white has-text-centered">Alle artikelen</h1>
@@ -35,6 +34,7 @@ const BlogIndexTemplate: FunctionComponent<IBlogIndexTemplateProps> = (props) =>
 export default BlogIndexTemplate;
 
 // TODO authors query is no longer needed
+// TODO add more button
 export const pageQuery = graphql`
     query BlogOverviewTemplate($skip: Int!, $limit: Int!) {
         allMarkdownRemark(

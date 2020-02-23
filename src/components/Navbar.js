@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql, Link, StaticQuery } from 'gatsby'
-import Search from '../img/search.inline.svg'
 import logo from '../../static/img/logo_MEN.png'
+import EuropeanenSearch from './EuropeanenSearch';
 
-// TODO add tags to Navbar
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
@@ -31,13 +30,6 @@ const Navbar = class extends React.Component {
             })
       }
     )
-  }
-
-  handleSearchInput(event) {
-    if (event.key === 'Enter') {
-      // search
-    }
-    console.log({event}, event.target.value, event.key);
   }
 
   render() {
@@ -102,15 +94,10 @@ const Navbar = class extends React.Component {
                 </div>
               </div>
               <Link className="navbar-item" to="/about">
-                Over de European
+                Over de Europeanen
               </Link>
             </div>
-            <div className="navbar-end control has-icons-right">
-              <input type="search" className="input" placeholder="Zoeken" onKeyUp={this.handleSearchInput.bind(this)}/>
-              <span className="icon is-right">
-                <Search title="zoek-icoon" id="search-input"></Search>
-              </span>
-            </div>
+            <EuropeanenSearch></EuropeanenSearch>
           </div>
         </div>
       </nav>
