@@ -41,7 +41,7 @@ collections:
         name: "attachment"
         widget: file
         required: false
-      - {label: "Bijlage weergavenaam", "attachment_description", widget: string, required: false }
+      - {label: "Bijlage weergavenaam", name: "attachment_description", widget: string, required: false }
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list", required: false}
 
