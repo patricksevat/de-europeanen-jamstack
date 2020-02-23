@@ -84,11 +84,15 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
           <br/>
           {props.metadata.tags &&
             <span className="eu_card-date is-size-7 has-text-grey-light">
-              # {props.metadata?.tags?.map((tag, i) => (
-                <Link key={tag} to={`/tags/${kebabCase(tag)}`}>
-                  <div className="eu_card-tag has-text-grey-light">{ tag }</div>
-                </Link>
-            ))}
+              # {props.metadata?.tags?.map((tag, i) => {
+                if (!tag) { return null }
+
+                return (
+                  <Link key={tag} to={`/tags/${kebabCase(tag)}`}>
+                    <div className="eu_card-tag has-text-grey-light">{ tag }</div>
+                  </Link>
+                )
+                })}
             </span>
           }
         </div>

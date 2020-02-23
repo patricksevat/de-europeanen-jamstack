@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link, StaticQuery } from 'gatsby'
 import logo from '../../static/img/logo_MEN.png'
 import EuropeanenSearch from './EuropeanenSearch';
+import kebabCase from 'lodash/kebabCase';
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -87,7 +88,7 @@ const Navbar = class extends React.Component {
                 </Link>
                 <div className="navbar-dropdown is-boxed">
                   { uniqueTags.map(tag => (
-                    <Link key={tag} to={`/tags/${tag}`} className="navbar-item">
+                    <Link key={tag} to={`/tags/${kebabCase(tag)}`} className="navbar-item">
                       { tag }
                     </Link>
                   ))}

@@ -21,6 +21,7 @@ const EuropeanenSearch: FunctionComponent<ISearchProps> = (props) => {
   return (
     <div className="eu_search navbar-end control has-icons-right">
       <input
+        aria-label="zoek veld"
         type="search"
         className="input"
         placeholder="Zoeken"
