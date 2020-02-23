@@ -1,0 +1,15 @@
+@import "./variables";
+
+.eu_search {
+  position: relative;
+
+  &-results {
+    position: absolute;
+    top: 2.5em;
+    min-width: 300px;
+
+    .panel-block {
+      background: $white;
+    }
+  }
+}
