@@ -9,7 +9,7 @@ const Footer = class extends React.Component {
     return (
       <footer className="footer has-text-white columns is-gapless is-centered">
         <div className="container column is-4">
-          <div className="level">
+          <div className="footer-buttons">
             <Link to="/contact" className="level-item">
               <button className="button is-outlined is-white">
                 Contact
