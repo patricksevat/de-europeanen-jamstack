@@ -30,6 +30,8 @@ interface ICardProps {
 }
 
 export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
+  const hasImage = !!props.image || props.type === 'blog';
+
   return (
     <section className="eu_card" id={props.id}>
       <header className={`eu_card-header eu_card-header--${props.headerColor}`}>
@@ -42,14 +44,14 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
         }
 
       </header>
-      { props.type === 'blog' && (
         <div className="eu_card-img_wrapper">
-            <img
+          { hasImage && <img
               className="eu_card-image"
               src={ props?.image?.src || EUFlag }
               srcSet={ props?.image?.srcSet }
               alt={ props.imgAlt || 'Foto behorend bij artikel'}
             />
+          }
           {!!props.author && (
             <div className="eu_card-author">
               <img
@@ -70,7 +72,6 @@ export const EuropeanenCard: FunctionComponent<ICardProps> = (props) => {
             </div>
           )}
         </div>
-      )}
       {!!props.body &&
         <div className="eu_card-body" dangerouslySetInnerHTML={{
           __html: props.body

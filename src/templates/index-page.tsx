@@ -29,9 +29,11 @@ export const IndexPageTemplate = ({
           headerColor={'yellow'}
           body={about_content}
         >
-          <button className="button is-link is-outlined">
-            { about_button_title }
-          </button>
+          <Link to={'/about'}>
+            <button className="button is-link is-outlined">
+              { about_button_title }
+            </button>
+          </Link>
         </EuropeanenCard>
         <EuropeanenCard
           id="news-card"

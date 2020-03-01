@@ -1,25 +1,57 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import { EuropeanenCard } from '../components/EuropeanenCard';
+import './about-page.scss';
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content
+interface IAboutCard {
+  html: string,
+  frontmatter: {
+    title: string,
+    featuredimageAlt: string,
+    featuredimage: {
+      childImageSharp: {
+        fluid: {
+          src: string,
+          srcSet: string,
+        }
+      }
+    }
+  }
+}
+
+interface IAboutPage {
+  title: string,
+  content: string,
+  cards: IAboutCard[],
+}
+
+export const AboutPageTemplate: FunctionComponent<IAboutPage> = ({ title, content, cards }) => {
+  console.log({ cards })
 
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
+    <section id="main" className="section">
+      <EuropeanenCard
+        id="about-main-card"
+        type={'other'}
+        title={title}
+        headerColor={'yellow'}
+        body={content}
+      />
+
+      <div className="eu-columns">
+        { cards?.length && cards.map(card => (
+          <EuropeanenCard
+            id="about-card"
+            type={'other'}
+            title={card.frontmatter.title}
+            image={card.frontmatter.featuredimage.childImageSharp.fluid}
+            imgAlt={card.frontmatter.featuredimageAlt}
+            headerColor={'yellow'}
+            body={card.html}
+          />
+        ))}
       </div>
     </section>
   )
@@ -28,18 +60,18 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
-  contentComponent: PropTypes.func,
 }
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: page, allMarkdownRemark: cards } = data;
 
   return (
     <Layout>
+      <h1 className="page-header is-size-2 has-text-white has-text-centered">Over de Europeanen</h1>
       <AboutPageTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={page.frontmatter.title}
+        content={page.html}
+        cards={cards.nodes}
       />
     </Layout>
   )
@@ -57,6 +89,23 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+      }
+    }
+    allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "about-card"}}}) {
+      nodes {
+        html
+        frontmatter {
+          title
+          featuredimage_alt
+          featuredimage {
+            childImageSharp {
+              fluid(maxWidth: 400) {
+                src
+                srcSet
+              }
+            }
+          }
+        }
       }
     }
   }

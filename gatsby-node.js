@@ -63,6 +63,10 @@ exports.createPages = ({ actions, graphql }) => {
     const authors = posts.filter(post => post.node.frontmatter.templateKey === 'author');
 
     posts.forEach(edge => {
+      if (edge.node.frontmatter.templateKey === 'about-card') {
+        return;
+      }
+
       const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
