@@ -7,6 +7,11 @@ interface IContactProps {
 }
 
 const ContactPage: FunctionComponent<IContactProps> = (props) => {
+  let params;
+  useEffect(() => {
+    params = (new URL(window?.location?.href))?.searchParams;
+    setSubmitSuccess(params.get('success') === 'true');
+  }, []);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   return (
@@ -37,7 +42,7 @@ const ContactPage: FunctionComponent<IContactProps> = (props) => {
               data-netlify="true"
               data-netlify-honeypot="nep-naam"
               onSubmit={() => setSubmitSuccess(true)}
-              action={'#'}
+              action={'/contact?success=true'}
             >
               {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
               <input type="hidden" name="form-name" value="contact" />
