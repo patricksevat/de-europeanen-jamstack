@@ -36,7 +36,7 @@ collections:
       - {label: "Publicatiedatum", name: "date", widget: "datetime"}
       - {label: "Samenvatting", name: "description", widget: "text"}
       - {label: "Foto", name: "featuredimage", widget: image, required: false}
-      - {label: "Featured Image beschrijving", name: "featuredimage_alt", widget: string}
+      - {label: "Featured Image beschrijving", name: "featuredimage_alt", widget: string, required: false}
       - label: "Bijlage"
         name: "attachment"
         widget: file
@@ -44,6 +44,18 @@ collections:
       - {label: "Bijlage weergavenaam", name: "attachment_description", widget: string, required: false }
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list", required: false}
+
+  - name: "about-card"
+    label: "Over de Europeanen kaartje"
+    folder: "src/pages/about-cards"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-card"}
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Foto", name: "featuredimage", widget: image, required: false}
+      - {label: "Featured Image beschrijving", name: "featuredimage_alt", widget: string, required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "author"
     label: "Authors"
@@ -77,5 +89,5 @@ collections:
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Title hoofdkaart", name: "title", widget: "string"}
+          - {label: "Body hoofdkaart", name: "body", widget: "markdown"}
