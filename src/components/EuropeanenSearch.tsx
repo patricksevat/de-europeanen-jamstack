@@ -35,6 +35,7 @@ const EuropeanenSearch: FunctionComponent<ISearchProps> = (props) => {
           <p className="panel-heading">Zoekresultaten</p>
           { results.map(result => (
               <a
+                key={result.path}
                 href={result.path}
                 className="panel-block"
               >{ result.title }</a>
