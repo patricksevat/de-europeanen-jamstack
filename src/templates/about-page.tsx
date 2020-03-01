@@ -28,7 +28,6 @@ interface IAboutPage {
 }
 
 export const AboutPageTemplate: FunctionComponent<IAboutPage> = ({ title, content, cards }) => {
-  console.log({ cards })
 
   return (
     <section id="main" className="section">
@@ -44,6 +43,7 @@ export const AboutPageTemplate: FunctionComponent<IAboutPage> = ({ title, conten
         { cards?.length && cards.map(card => (
           <EuropeanenCard
             id="about-card"
+            key={card.frontmatter.title}
             type={'other'}
             title={card.frontmatter.title}
             image={card.frontmatter.featuredimage.childImageSharp.fluid}
