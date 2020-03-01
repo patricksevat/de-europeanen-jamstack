@@ -47,7 +47,7 @@ collections:
 
   - name: "about-card"
     label: "Over de Europeanen kaartje"
-    folder: "src/pages/about-cards"
+    folder: "src/about-cards"
     create: true
     slug: "{{slug}}"
     fields:
