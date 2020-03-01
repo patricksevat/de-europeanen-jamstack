@@ -7,8 +7,11 @@ interface IContactProps {
 }
 
 const ContactPage: FunctionComponent<IContactProps> = (props) => {
-  const params = (new URL((window as any).location.href)).searchParams;
-  const [submitSuccess, setSubmitSuccess] = useState(params.get('success') === 'true');
+  let params;
+  useEffect(() => {
+    params = (new URL(window?.location?.href))?.searchParams;
+  }, []);
+  const [submitSuccess, setSubmitSuccess] = useState(params && params.get('success') === 'true');
 
   return (
     <Layout>
