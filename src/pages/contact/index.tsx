@@ -7,7 +7,7 @@ interface IContactProps {
 }
 
 const ContactPage: FunctionComponent<IContactProps> = (props) => {
-  const [submitSuccess, setSubmitSuccess] = useState(true);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   return (
     <Layout>
