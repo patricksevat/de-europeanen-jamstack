@@ -7,6 +7,8 @@
 body
   // wght range 95-128, wdth range 0-100
   font-variation-settings: 'wght' 95, 'wdth' 0
+  min-height: calc(100vh - #{$navbar-height})
+  position: relative
 
 .navbar
   background-color: $blue
@@ -125,7 +127,14 @@ body
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  padding: 1.5rem 0
+  height: $footer-height
+  padding: 0.5rem 0
+  position: absolute
+  width: 100vw
+  bottom: 0
+  .footer-buttons
+    display: flex
+    justify-content: space-around
 
 //Menu overrides
 $menu-item-color: $white
